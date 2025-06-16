@@ -23,8 +23,9 @@
     }
     .container{
         display:flex;
+        flex-direction: column;
 
-
+        justify-content: center;
     }
 
     .container:hover{
