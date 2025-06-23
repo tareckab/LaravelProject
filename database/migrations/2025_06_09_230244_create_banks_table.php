@@ -17,7 +17,7 @@ return new class extends Migration
     $table->integer('agency');
     $table->string('account_number');
     $table->string('account_type');
-    $table->unsignedBigInteger('user_id'); // ainda sem foreign
+    $table->unsignedBigInteger('user_id')->nullable(); // ainda sem foreign
     $table->timestamps();
         });
     }

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Meu CRUD</title>
+    <title>Consulta de Contas</title>
 </head>
 <body>
     @yield('content')

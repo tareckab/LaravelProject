@@ -31,7 +31,7 @@ class BankController extends Controller
             'agency' => 'required|string|max:50',
             'account_number' => 'required|string|max:50',
             'account_type' => 'required|string|max:100',
-            'user_id' => 'required|exists:usuarios,id',
+            //'user_id' => 'required|exists:usuarios,id',
         ]);
 
         Bank::create($request->all());
@@ -54,7 +54,8 @@ class BankController extends Controller
     public function edit(string $id)
     {
          $bank = Bank::findOrFail($id);
-        return view('bank.edit', compact('bank'));
+         
+    return view('bank.edit', compact('bank'));
     }
 
     /**
@@ -68,7 +69,7 @@ class BankController extends Controller
             'agency' => 'required|string|max:50',
             'account_number' => 'required|string|max:50',
             'account_type' => 'required|string|max:100',
-            'user_id' => 'required|exists:users,id',
+            //'user_id' => 'required|exists:users,id',
         ]);
 
         $bank = Bank::findOrFail($id);

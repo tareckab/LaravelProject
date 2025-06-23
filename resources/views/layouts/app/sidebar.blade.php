@@ -12,74 +12,20 @@
             </a>
 
             <flux:navlist variant="outline">
-                <flux:navlist.group :heading="__('Menu')" class="grid">
+    <flux:navlist.group :heading="__('Platform')" class="grid">
+        <flux:navlist.item icon="home" :href="route('dashboard')" :current="request()->routeIs('dashboard')" wire:navigate>
+            {{ __('Dashboard') }}
+        </flux:navlist.item>
 
-                <flux:navlist class="w-64">
+        <flux:navlist.item icon="users" :href="route('usuarios.index')" :current="request()->routeIs('usuarios.index')" wire:navigate>
+            {{ __('Usuários') }}
+        </flux:navlist.item>
 
-                    <flux:navlist.item
-                        icon="home"
-                        :href="route('dashboard')"
-                        :current="request()->routeIs('dashboard')"
-                        wire:navigate
-                    >
-                        {{ __('Dashboard') }}
-                    </flux:navlist.item>
-
-                    <flux:navlist.group
-                        heading="Disciplinas"
-                        expandable
-                        :expanded="request()->routeIs('disciplinas.*')"
-                        class="mt-4">
-                        
-                        <flux:navlist.item
-                            icon="list-bullet"
-                            :href="route('disciplinas.index')"
-                            :current="request()->routeIs('disciplinas.index')"
-                            wire:navigate
-                        >
-                            {{ __('Listar') }}
-                        </flux:navlist.item>
-
-                        <flux:navlist.item
-                            icon="plus-circle"
-                            :href="route('disciplinas.create')"
-                            :current="request()->routeIs('disciplinas.create')"
-                            wire:navigate
-                        >
-                            {{ __('Nova') }}
-                        </flux:navlist.item>
-                    </flux:navlist.group>
-
-                    <flux:navlist.group
-                        heading="Avaliações"
-                        expandable
-                        :expanded="request()->routeIs('avaliacoes.*')"
-                        class="mt-4">
-
-                        <flux:navlist.item
-                                icon="list-bullet"
-                                :href="route('avaliacoes.index')"
-                                :current="request()->routeIs('avaliacoes.index')"
-                                wire:navigate
-                            >
-                            {{ __('Listar') }}
-                        </flux:navlist.item>
-
-                           <flux:navlist.item
-                                icon="plus-circle"
-                                :href="route('avaliacoes.create')"
-                                :current="request()->routeIs('avaliacoes.create')"
-                                wire:navigate
-                            >
-                            {{ __('Criar') }}
-                        </flux:navlist.item>
-
-                    </flux:navlist.group>
-
-                </flux:navlist>
-
-                </flux:navlist.group>
-            </flux:navlist>
+        <flux:navlist.item icon="banknotes" :href="route('bank.index')" :current="request()->routeIs('bank.index')" wire:navigate>
+            {{ __('Banco') }}
+        </flux:navlist.item>
+    </flux:navlist.group>
+</flux:navlist>
 
             <flux:spacer />
 
@@ -94,11 +40,11 @@
             </flux:navlist>
 
             <!-- Desktop User Menu -->
-            <flux:dropdown position="bottom" align="start">
+            <flux:dropdown class="hidden lg:block" position="bottom" align="start">
                 <flux:profile
                     :name="auth()->user()->name"
                     :initials="auth()->user()->initials()"
-                    icon-trailing="chevrons-up-down"
+                    icon:trailing="chevrons-up-down"
                 />
 
                 <flux:menu class="w-[220px]">
